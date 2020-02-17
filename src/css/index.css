@@ -1,0 +1,13 @@
+.color-red {
+    color: red;
+}
+
+table, th, td, tr {
+    border: 1px solid #d10748;
+}
+
+.table-react {
+    width: 300px;
+    height: 100px;
+    margin: 100px auto 0;
+}
