@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import './css/index.css';
 
-// import App from './App';
+import App from './App';
 // import View from './view/view.js';
 
 import * as serviceWorker from './serviceWorker';
@@ -14,40 +14,40 @@ import * as serviceWorker from './serviceWorker';
 // }
 // const h1 = (<h1>{element + ' ' + test('abc')}</h1>)
 
-class Welcome extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      inputState_1: 'Tran',
-      inputState_2: 'An',
-      inputState_3: '3',
-      listItems: [
-        { id: 1, name: 'Tran' },
-        { id: 2, name: 'an' },
-        { id: 3, name: 'Tan' },
-        { id: 4, name: 'ran' },
-      ],
-      value: 10,
-      data: 0
-    }
-    this.handleOnchange = this.handleOnchange.bind(this);
-  };
+class DaisyReact extends React.Component {
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
+  //     inputState_1: 'Tran',
+  //     inputState_2: 'An',
+  //     inputState_3: '3',
+  //     listItems: [
+  //       { id: 1, name: 'Tran' },
+  //       { id: 2, name: 'an' },
+  //       { id: 3, name: 'Tan' },
+  //       { id: 4, name: 'ran' },
+  //     ],
+  //     value: 10,
+  //     data: 0
+  //   }
+  //   this.handleOnchange = this.handleOnchange.bind(this);
+  // };
 
-  handleSubmit() {
-    console.log('console.log-1');
-  };
+  // handleSubmit() {
+  //   console.log('console.log-1');
+  // };
 
-  handleOnchange(e) {
-    this.setState({
-      demoDataReact: e.target.value,
-    });
+  // handleOnchange(e) {
+  //   this.setState({
+  //     demoDataReact: e.target.value,
+  //   });
 
-    setTimeout(() => {
-      this.setState({
-        value: this.state.demoDataReact,
-      });
-    }, 10);
-  };
+  //   setTimeout(() => {
+  //     this.setState({
+  //       value: this.state.demoDataReact,
+  //     });
+  //   }, 10);
+  // };
 
   render() {
     return (
@@ -70,8 +70,7 @@ class Welcome extends React.Component {
 
       
       <div>
-        <input className="input-react" name="demoDataReact" value={this.state.value} onChange={this.handleOnchange}></input>
-        <p>{this.state.value}</p>
+        <App />
       </div>
       // <form onSubmit={this.handleSubmit}>
       //   <label> Name: </label>
@@ -82,7 +81,7 @@ class Welcome extends React.Component {
   }
 }
 
-ReactDOM.render(<Welcome name="An" />, document.getElementById('root'));
+ReactDOM.render(<DaisyReact />, document.getElementById('root'));
 // ReactDOM.render(<App />, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change

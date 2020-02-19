@@ -1,0 +1,23 @@
+a {
+    text-decoration: none;
+    text-decoration-line: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+button {
+    outline: none;
+}
+
+header {
+    text-align: center;
+}
+
+footer {
+    position: absolute;
+    bottom: 10px;
+    left: 45%;
+    font-size: 13px;
+}
