@@ -1,7 +1,6 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-// import logo from './logo.svg';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { Header, Footer } from './components';
 import { ExtraBass, Wifi, Wiless } from './views';
