@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { Header, Footer } from './components';
-import { ExtraBass, Wifi, Wiless } from './views';
+import { ExtraBass, Computer, Wiless } from './views';
 
 import './css/app.css';
 
@@ -17,23 +17,9 @@ const routes = [
     component: Wiless
   },
   {
-    path: "/Wifi",
-    component: Wifi
+    path: "/Computer",
+    component: Computer
   },
-  // {
-  //   path: "/wifi",
-  //   component: ExtraBass,
-  //   routes: [
-  //     {
-  //       path: "/wifi/bus",
-  //       component: Wifi
-  //     },
-  //     {
-  //       path: "/wifi/cart",
-  //       component: Wiless
-  //     }
-  //   ]
-  // }
 ];
 
 function App() {

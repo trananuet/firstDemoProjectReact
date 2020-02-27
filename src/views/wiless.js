@@ -1,22 +1,22 @@
-import React from 'react';
-// import { connect } from 'react-redux';
+import React, { Component } from 'react';
+// import { setDataComputer } from '../actions/setDataComputer';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { withRouter } from "react-router-dom";
 
-class Wiless extends React.Component {
-  constructor(props) {
-    super(props);
+class Wiless extends Component {
+  constructor() {
+    super();
     this.handelClick = this.handelClick.bind(this);
-
-    this.state = {
-      typeSony: '',
-      nameSony: ''
-    };
-
     this.inputTagForm = {
       typeSony: '',
       nameSony: '',
-    }
+    };
 
-
+    this.state = {
+      id: 2,
+      redirect: false,
+    };
   }
 
   render() {
@@ -37,35 +37,37 @@ class Wiless extends React.Component {
     );
   }
 
-  handelClick({ dispatch }) {
-    this.setState({
-      typeSony: this.inputTagForm.typeSony.value.trim(),
-      nameSony: this.inputTagForm.nameSony.value.trim(),
-    });
+  handelClick() {
+    let { dataSony } = this.props;
+    let { id } = dataSony[dataSony.length - 1];
 
-    // function mapDispatchToProps(dispatch) {
-    //   return bindActionCreators({addFriendAction}, dispatch)
-    // }
-    // let data = {
-    //   typeSony: this.inputTagForm.typeSony.value.trim(),
-    //   nameSony: this.inputTagForm.nameSony.value.trim(),
-    // }
-    // addDataSony(data);
+    let data = {
+      id: id + 1,
+      type: this.inputTagForm.typeSony.value.trim(),
+      name: this.inputTagForm.nameSony.value.trim(),
+    };
 
-    // dispatch(addDataSony(data));
+    this.props.dataSony.push(data);
+    setDataComputer(this.props.dataSony);
+    this.props.history.push('/Computer');
   }
 }
 
-// const mapDispatchToProps = (dispatch) => {
-//   return {
-//     onClick: () => dispatch({ type: 'ADD_DATA' })
-//   }
-// }
+const setDataComputer = (data) => {
+  return {
+    type: 'SET_DATA_COMPUTER',
+    payload: data
+  }
+};
 
+const mapStateToProps = (state, ownProps) => {
+  return {
+    dataSony: state.computers.dataSony
+  }
+}
 
-// function addDataSony(data) {
-//   return {type: 'ADD_DATA', data: data}
-// }
+function matchDispatchToProps(dispatch) {
+  return bindActionCreators({ setDataComputer }, dispatch);
+}
 
-// export default connect()(Wiless);
-export default Wiless;
+export default connect(mapStateToProps, matchDispatchToProps)(withRouter(Wiless));

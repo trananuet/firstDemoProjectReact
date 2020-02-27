@@ -9,8 +9,9 @@ function Header(cla = {}) {
       <h3 className="view-tiles bg-info text-white">SONY - REACT</h3>
       <h3 className="bg-success text-white ">XB</h3>
       <div className="row m-0">
-        <Link to="/Wifi" className="offset-2 col-3"><button className="btn-react-custom btn btn-primary">WIFI</button></Link>
-        <Link to="/ExtraBass" className="offset-2 col-3"><button className="btn-react-custom btn btn-primary">EXTRA BASS</button></Link>
+        <Link to="/Computer" className="offset-1 col-3"><button className="btn-react-custom btn btn-primary">COMPUTER</button></Link>
+        <Link to="/ExtraBass" className="offset-1 col-3"><button className="btn-react-custom btn btn-primary">EXTRA BASS</button></Link>
+        <Link to="/Wiless" className="offset-1 col-3"><button className="btn-react-custom btn btn-warning w-100">ADD COMPUTER</button></Link>
       </div>
     </header>
   );
