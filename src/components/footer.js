@@ -2,7 +2,11 @@ import React from 'react';
 
 function Footer() {
   return (
-    <footer> Made by @an.tranvan</footer>
+    <footer>
+      <div>
+        <span>Made by @an.tranvan</span>
+      </div>
+    </footer>
   );
 }
 
