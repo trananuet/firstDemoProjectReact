@@ -11,7 +11,7 @@ function Header(cla = {}) {
       <div className="row m-0">
         <Link to="/Computer" className="offset-1 col-3"><button className="btn-react-custom btn btn-primary">COMPUTER</button></Link>
         <Link to="/ExtraBass" className="offset-1 col-3"><button className="btn-react-custom btn btn-primary">EXTRA BASS</button></Link>
-        <Link to="/Wiless" className="offset-1 col-3"><button className="btn-react-custom btn btn-warning w-100">ADD COMPUTER</button></Link>
+        <Link to="/add-data" className="offset-1 col-3"><button className="btn-react-custom btn btn-warning w-100">ADD COMPUTER</button></Link>
       </div>
     </header>
   );

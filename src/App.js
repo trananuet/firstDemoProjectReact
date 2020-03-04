@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { Header, Footer } from './components';
-import { ExtraBass, Computer, Wiless } from './views';
+import { ExtraBass, Computer, AddDataComputer } from './views';
 
 import './css/app.css';
 
@@ -13,8 +13,8 @@ const routes = [
     component: ExtraBass
   },
   {
-    path: "/Wiless",
-    component: Wiless
+    path: "/add-data",
+    component: AddDataComputer
   },
   {
     path: "/Computer",

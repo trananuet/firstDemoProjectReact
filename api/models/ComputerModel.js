@@ -16,13 +16,31 @@ ComputerModel.createTable = () => {
 };
 
 ComputerModel.insertTable = (data) => {
+  const inserData = {
+    type: data.type,
+    name: data.name
+  };
   createConnection().then(sql => {
-    sql.query(`INSERT INTO computers (type, name) VALUES (${data.type}, ${data.name})`, (err, res) => {
-      console.log('insertTable');
+    sql.query('INSERT INTO computers SET ?', inserData, (err, res) => {
       sql.release();
     });
   }).catch(err => {
     console.log(err);
+  });
+};
+
+ComputerModel.selectDataTable = (handler) => {
+  createConnection().then(sql => {
+    sql.query(`SELECT * FROM computers`, (err, res) => {
+      if (err) {
+        handler(err, null);
+      } else {
+        handler(null, res);
+      }
+      sql.release();
+    });
+  }).catch(err => {
+    handler(err);
   });
 };
 

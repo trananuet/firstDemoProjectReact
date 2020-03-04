@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 // import { setDataComputer } from '../actions/setDataComputer';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import { withRouter } from "react-router-dom";
+import { withRouter } from 'react-router-dom';
+import axios from 'axios';
 
-class Wiless extends Component {
+class AddDataComputer extends Component {
   constructor() {
     super();
     this.handelClick = this.handelClick.bind(this);
@@ -38,27 +38,19 @@ class Wiless extends Component {
   }
 
   handelClick() {
-    let { dataSony } = this.props;
-    let { id } = dataSony[dataSony.length - 1];
-
+    let self = this;
     let data = {
-      id: id + 1,
-      type: this.inputTagForm.typeSony.value.trim(),
-      name: this.inputTagForm.nameSony.value.trim(),
+      type: self.inputTagForm.typeSony.value.trim(),
+      name: self.inputTagForm.nameSony.value.trim(),
     };
-
-    this.props.dataSony.push(data);
-    setDataComputer(this.props.dataSony);
-    this.props.history.push('/Computer');
+    
+    axios.post('http://localhost:8000/api/create-data-computer', data).then(function (response) {
+      self.props.history.push('/Computer');
+    }).catch(function (error) {
+      console.log(error);
+    });
   }
 }
-
-const setDataComputer = (data) => {
-  return {
-    type: 'SET_DATA_COMPUTER',
-    payload: data
-  }
-};
 
 const mapStateToProps = (state, ownProps) => {
   return {
@@ -66,8 +58,4 @@ const mapStateToProps = (state, ownProps) => {
   }
 }
 
-function matchDispatchToProps(dispatch) {
-  return bindActionCreators({ setDataComputer }, dispatch);
-}
-
-export default connect(mapStateToProps, matchDispatchToProps)(withRouter(Wiless));
+export default connect(mapStateToProps)(withRouter(AddDataComputer));
